@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>filetring</title>
+    <style>
+        body{
+            background-color: burlywood;
+        }
+        *{
+            box-sizing: border-box;
+        }
+        #myInput{
+            width: 100%;
+            font-size: 16px;
+            padding:  12px 20px 12px 40px;
+            border:  1px solid #ddd;
+            margin-bottom: 12px;
+        }
+        #myUl {
+list-style-type: none;
+padding: 0;
+margin: 0;
+        }
+        #myUl li a{
+            text-decoration: none;
+            margin-top:  -1px;
+            background-color: #f6f6f6;
+            padding: 12px;
+            font-size: 18px;
+            color: black;
+            display: block;
+            border:  1px solid #dddd;
+        }
+        #myUl li  a:hover :not(.header){
+            background-color: #eeee;
+        }
+    </style>
+</head>
+<body>
+ <h1>My Phone book </h1> 
+     <input type="text" placeholder=" search for name" id="myInput" onkeyup="myFunction()">
+     <ul id="myUl">
+     <li><a href="#">David </a></li>
+     <li><a href="#">mary </a></li>
+     <li><a href="#">monica </a></li>
+     <li><a href="#">cate </a></li>
+     <li><a href="#">caroline</a> </a></li>
+     <li><a href="#">Doris</a></li>
+     </ul>
+
+<script>
+    function myFunction(){
+        var input= document.getElementById("myInput");
+        var ul=document.getElementById("myUl");
+        var li =document.getElementsByTagName("li");
+        var  filter=input.value .toUpperCase();
+        for( i = 0; i < li .length ; i++){
+        var a= li[i].getElementsByTagName('a')[0];
+        var textValue = a.textContent || a.innerHTML;
+        if(textValue .toUpperCase() .indexOf(filter) > - 1){
+            li[i] .style .display =""
+        }else{
+            li[i].style .display ="none"
+        }
+            
+        }
+    }
+</script>
+</body>
+</html>
